@@ -1,7 +1,7 @@
 # My Custom Configured Azure SIEM
 
 
-This is my first real security project involving Azure that I'm excited to share. A lot of components went into creating this SIEM and monitoring real-time brute-force attacks coming in from all over the globe against my poor little defenseless honeypot VM was nothing short of exhilirating!
+This is my first real security project involving Azure that I'm excited to share. A lot of components went into creating this SIEM and monitoring real-time brute-force attacks coming in from all over the globe against my poor little defenseless honeypot VM was nothing short of exhilarating!
 
 Here's a visualization of what this process looks like. Not really much to look at yet but the interesting stuff is always found under the hood anyway, right?
 
