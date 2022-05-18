@@ -41,3 +41,11 @@ I found a nice ipgeolocation API that tracked the coordinates of where the attac
 
 ![ipgeo api](https://user-images.githubusercontent.com/105020710/168953082-72dab264-95ea-47f2-9fe4-54b7c8b2987d.jpg)
 
+Inside the honeypot VM, I ran a custom security log exporter PowerShell script that uses the API key from the geolocation site to view the geolocation data from each attacker, while also combing the event viewer Security logs to display all the failed log-in events in real-time!
+
+![PowerShell log extraction code](https://user-images.githubusercontent.com/105020710/168953538-ef923632-ace3-4b17-a0c4-3b753d54bb65.jpg)
+
+Once I kicked off the PowerShell script, it would chronologically output the scraped data from failed attackers including their location, source IP, and even the username that they tried brute forcing my VM with.
+
+![Incoming attacks PowerShell](https://user-images.githubusercontent.com/105020710/168953910-6301e6fb-79da-4cbe-9648-1df40745f549.jpg)
+
