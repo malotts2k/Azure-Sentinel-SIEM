@@ -49,3 +49,30 @@ Once I kicked off the PowerShell script, it would chronologically output the scr
 
 ![Incoming attacks PowerShell](https://user-images.githubusercontent.com/105020710/168953910-6301e6fb-79da-4cbe-9648-1df40745f549.jpg)
 
+It dumps those failed log-in attempts to a .txt file in the ProgramData folder on the client VM and outputs the following:
+
+![failed logon txt dumps](https://user-images.githubusercontent.com/105020710/168954247-c352e290-0385-4cf6-a277-bb0cd5e3e094.jpg)
+
+Well, we're officially able to see brute force attackers from all over the globe in real-time attacking our poor honeypot. Now it's time to set up a custom log script that will allow that data to be imported into the Log Analytics Workspace. A simple query referencing the column data from the previous PowerShell script should do it.
+
+![Sentinel SQL Query](https://user-images.githubusercontent.com/105020710/168954502-103fc44d-fe46-4769-8bf4-d6d9e9d3ecdc.jpg)
+
+After a few custom field extractions, the data started pouring into the Log Analytics workspace that matched the Security logs from the honeypot VM. Finally, I get to see the security logs directly from the Azure UI!
+
+![Azure Honeypot logs](https://user-images.githubusercontent.com/105020710/168954879-7b97917b-883c-4186-b3c6-d1856794263e.jpg)
+
+The Azure Sentinel dashboard is lighting up as well!
+
+![sentinel dashboard](https://user-images.githubusercontent.com/105020710/168954914-afdb738f-75a9-45b5-b54e-03aff62ec85b.jpg)
+
+The most exciting part about this process (besides getting to see attacks being launched from all over the globe against one of my Azure resources in real-time) was the beautiful visuals that were created. By creating a new workbook in Azure Sentinel and matching the map settings to the geographic data generated in the security logs in LAW, I was able to create an actual heat map of where the attackers were coming from.
+
+I let the honeypot sit for about 24 hours before coming back to check on the activity that occurred against my enticing VM. 
+
+What I found was breathtaking...
+
+![Azure Honeypot Attacks - Microsoft Azure](https://user-images.githubusercontent.com/105020710/168955271-00c717aa-325f-4de7-8bd1-eefa21937522.jpg)
+
+In only 24 hours from the moment I set up this honeypot and SIEM to monitor the attacks against it, I was able to observe about 16,000 malicious brute-force attacks from all over the world.
+
+This is only the start of a very long and arduous journey into my Azure Security experience and I'm glad I was able to share it here.
