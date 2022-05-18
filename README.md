@@ -1,4 +1,4 @@
-# The Azure Sentinel SIEM that I created using a completely exploitable honeypot Azure VM:
+# The Azure Sentinel SIEM that I configured while using a completely exploitable honeypot Azure VM:
 
 
 This is my first real security project involving Azure that I'm excited to share. A lot of components went into creating this SIEM and monitoring real-time brute-force attacks coming in from all over the globe against my poor little defenseless honeypot VM was nothing short of exhilirating!
