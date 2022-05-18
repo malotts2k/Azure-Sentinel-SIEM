@@ -25,4 +25,7 @@ Back in Azure, in the Data Collection screen, I made sure to enable log collecti
 
 ![data collection setting - defender](https://user-images.githubusercontent.com/105020710/168951297-ae89da5a-f39b-4c84-b267-658cf7fcc086.jpg)
 
+After, in the Log Analytics workspace screen I connected the honeypot VM to the Log Analytics workspace.
+
+![connect vm to law](https://user-images.githubusercontent.com/105020710/168951818-584fb13c-70fb-40fc-bb89-2daceb97b266.png)
 
