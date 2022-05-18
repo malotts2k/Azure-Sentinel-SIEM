@@ -5,11 +5,12 @@ This is my first real security project involving Azure that I'm excited to share
 
 The first step on this perilous journey was to create a poorly defended VM in Azure. 
 
-![honeypot-vm properties](https://user-images.githubusercontent.com/105020710/168947818-59d2afd4-6613-42fb-abaa-9074d3222853.jpg)
+![VM overview](https://user-images.githubusercontent.com/105020710/168951948-b96a3659-209c-4de3-a982-60f73633b7f5.png)
+
 
 It was important during the VM creation process to create a network security group that provided a totally porous ingress that would allow for a barrage of attacks against my honeypot VM. As you can see, I created an inbound firewall rule named DANGER_ANY_IN that was set to allow ANY inbound network traffic.
 
-![NSG-honeypot](https://user-images.githubusercontent.com/105020710/168949174-0da2ca09-6ac0-404b-bd00-958760330ef9.jpg)
+![nsg](https://user-images.githubusercontent.com/105020710/168952065-db1b6ba8-664d-45f0-9f82-0b0aa5a592ea.png)
 
 After a few more tweaks, my honeypot resource group was complete.
 
