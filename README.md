@@ -23,7 +23,7 @@ After a few more tweaks, my honeypot resource group was complete.
 
 In order for me to be able to monitor the attacks coming in against my honeypot VM, I would next need to create a Log Analytics workspace. The documentation for this process can be found on the [Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace) site if you aren't already familiar with this process.
 
-In order to enable the ability to collect logs from my honeypot VM and connect them to the Log Analytics workspace, the next step was to ensure that Microsoft Defender for Cloud (previously Security Center) had the Azure Defender setting enabled. At the same time I also RDP'ed into the honeypot and turned off the Windows Defender Firewall for the Domain, Private and Public profiles.
+To enable the ability to collect logs from my honeypot VM and connect them to the Log Analytics workspace, the next step was to ensure that Microsoft Defender for Cloud (previously Security Center) had the Azure Defender setting enabled. At the same time I also RDP'ed into the honeypot and turned off the Windows Defender Firewall for the Domain, Private and Public profiles.
 
 ![defender and firewall](https://user-images.githubusercontent.com/105020710/168951191-e4b4960b-e2a6-4352-9454-920134afca17.jpg)
 
