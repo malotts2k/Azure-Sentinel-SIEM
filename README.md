@@ -26,7 +26,9 @@ After a few more tweaks, my honeypot resource group was complete.
 
 In order for me to be able to monitor the attacks coming in against my honeypot VM, I would next need to create a Log Analytics workspace. The documentation for this process can be found on the [Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace) site if you aren't already familiar with this process.
 
-To enable the ability to collect logs from my honeypot VM and connect them to the Log Analytics workspace, the next step was to ensure that Microsoft Defender for Cloud (previously Security Center) had the Azure Defender setting enabled. At the same time I also RDP'ed into the honeypot and turned off the Windows Defender Firewall for the Domain, Private and Public profiles.
+To enable the ability to collect logs from my honeypot VM and connect them to the Log Analytics workspace, the next step was to ensure that Microsoft Defender for Cloud (previously Security Center) had the Azure Defender setting enabled. 
+
+Note: At this point, I remoted into the honeypot VM and turned off the Windows Defender Firewall for the Domain, Private and Public profiles which allowed attackers immediate access to start launching brute force attacks against it.
 
 ![defender on](https://user-images.githubusercontent.com/105020710/169176188-e0a9759a-14a8-4e0b-abd7-2ac6d650735e.png)
 
@@ -77,7 +79,7 @@ The most exciting part about this process (besides getting to see attacks being 
 
 I let the honeypot sit for about 24 hours before coming back to check on the activity that occurred against my enticing VM. 
 
-What I found was breathtaking...
+What I discovered was astounding...
 
 ![Azure Honeypot Attacks - Microsoft Azure](https://user-images.githubusercontent.com/105020710/168955271-00c717aa-325f-4de7-8bd1-eefa21937522.jpg)
 
