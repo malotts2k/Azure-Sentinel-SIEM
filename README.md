@@ -85,4 +85,4 @@ What I discovered was astounding...
 
 In only 24 hours from the moment I set up this honeypot and SIEM to monitor the attacks against it, I was able to observe about 16,000 malicious brute-force attacks from all over the world.
 
-This is only the start of a very long and arduous journey into my Azure Security experience and I'm glad I was able to share it here.
+This is only the start of a very intriguing foray into my Azure Security career and I'm glad I was able to share it here with a like-minded audience. I hope you enjoyed this experience as much as I did and I hope to have more interesting projects to share in the future!
