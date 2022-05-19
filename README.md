@@ -1,4 +1,4 @@
-# My Custom Configured Azure SIEM
+# I created a custom Azure Sentinel SIEM to bait hackers AND expose their locations!
 
 
 This is my first real security project involving Azure that I'm excited to share. A lot of components went into creating this SIEM and monitoring real-time brute-force attacks coming in from all over the globe against my poor little defenseless honeypot VM was nothing short of exhilarating!
