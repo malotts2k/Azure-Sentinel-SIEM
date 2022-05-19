@@ -5,31 +5,36 @@ This is my first real security project involving Azure that I'm excited to share
 
 Here's a visualization of what this process looks like. Not really much to look at yet but the interesting stuff is always found under the hood anyway, right?
 
-![Honeypot-rg Visualizer](https://user-images.githubusercontent.com/105020710/168952475-019a92bb-d2a3-4d76-9453-d0f3e9f13150.jpg)
+![visualizer](https://user-images.githubusercontent.com/105020710/169176840-615e4402-d9a8-4e03-9a73-59345eeaa14e.png)
+
 
 
 The first step on this perilous journey was to create a poorly defended VM in Azure. 
 
-![VM overview](https://user-images.githubusercontent.com/105020710/168951948-b96a3659-209c-4de3-a982-60f73633b7f5.png)
+![VM overview](https://user-images.githubusercontent.com/105020710/169175169-df3576ee-7265-48fc-bcde-6f4acab1f1be.png)
 
 
 It was important during the VM creation process to create a network security group that provided a totally porous ingress that would allow for a barrage of attacks against my honeypot VM. As you can see, I created an inbound firewall rule named DANGER_ANY_IN that was set to allow ANY inbound network traffic.
 
-![nsg](https://user-images.githubusercontent.com/105020710/168952065-db1b6ba8-664d-45f0-9f82-0b0aa5a592ea.png)
+![nsg](https://user-images.githubusercontent.com/105020710/169175045-b7f76f29-c5e7-48fb-b1cb-2da18250acf2.png)
+
 
 After a few more tweaks, my honeypot resource group was complete.
 
-![honeypot-rg overview](https://user-images.githubusercontent.com/105020710/168949778-08d6347f-94df-44c9-9176-5e521005b691.jpg)
+![honeypot-RG-overview](https://user-images.githubusercontent.com/105020710/169175975-c107cfff-426b-4b3f-8612-d70414c15b73.png)
+
 
 In order for me to be able to monitor the attacks coming in against my honeypot VM, I would next need to create a Log Analytics workspace. The documentation for this process can be found on the [Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace) site if you aren't already familiar with this process.
 
 To enable the ability to collect logs from my honeypot VM and connect them to the Log Analytics workspace, the next step was to ensure that Microsoft Defender for Cloud (previously Security Center) had the Azure Defender setting enabled. At the same time I also RDP'ed into the honeypot and turned off the Windows Defender Firewall for the Domain, Private and Public profiles.
 
-![defender and firewall](https://user-images.githubusercontent.com/105020710/168951191-e4b4960b-e2a6-4352-9454-920134afca17.jpg)
+![defender on](https://user-images.githubusercontent.com/105020710/169176188-e0a9759a-14a8-4e0b-abd7-2ac6d650735e.png)
+
 
 Back in Azure, in the Data Collection screen, I made sure to enable log collection for All Events.
 
-![data collection setting - defender](https://user-images.githubusercontent.com/105020710/168951297-ae89da5a-f39b-4c84-b267-658cf7fcc086.jpg)
+![defender-data-collection](https://user-images.githubusercontent.com/105020710/169176207-77c301df-aaaa-48ad-aad3-dfda146ffa9a.png)
+
 
 After, in the Log Analytics workspace screen I connected the honeypot VM to the Log Analytics workspace.
 
@@ -55,7 +60,9 @@ It dumps those failed log-in attempts to a .txt file in the ProgramData folder o
 
 Well, we're officially able to see brute force attackers from all over the globe in real-time attacking our poor honeypot. Now it's time to set up a custom log script that will allow that data to be imported into the Log Analytics Workspace. A simple query referencing the column data from the previous PowerShell script should do it.
 
-![Sentinel SQL Query](https://user-images.githubusercontent.com/105020710/168954502-103fc44d-fe46-4769-8bf4-d6d9e9d3ecdc.jpg)
+
+![query](https://user-images.githubusercontent.com/105020710/169176705-c3b100a2-c1ac-4e5a-b57d-f632afb4842a.png)
+
 
 After a few custom field extractions, the data started pouring into the Log Analytics workspace that matched the Security logs from the honeypot VM. Finally, I get to see the security logs directly from the Azure UI!
 
@@ -63,7 +70,8 @@ After a few custom field extractions, the data started pouring into the Log Anal
 
 The Azure Sentinel dashboard is lighting up as well!
 
-![sentinel dashboard](https://user-images.githubusercontent.com/105020710/168954914-afdb738f-75a9-45b5-b54e-03aff62ec85b.jpg)
+
+![sentinel](https://user-images.githubusercontent.com/105020710/169176723-67a6c626-cc39-4b8f-8c13-d0e114064b16.png)
 
 The most exciting part about this process (besides getting to see attacks being launched from all over the globe against one of my Azure resources in real-time) was the beautiful visuals that were created. By creating a new workbook in Azure Sentinel and matching the map settings to the geographic data generated in the security logs in LAW, I was able to create an actual heat map of where the attackers were coming from.
 
